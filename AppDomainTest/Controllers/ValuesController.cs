@@ -1,6 +1,7 @@
 ﻿using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -121,9 +122,9 @@ namespace AppDomainTest.Controllers
 
 					var code = result.Code;
 					var description = result.Description;
-					
-					Console.WriteLine("Code -> 			"+code);
-					Console.WriteLine("Description -> 	"+description);
+
+					Debug.WriteLine("Code -> 			"+code);
+					Debug.WriteLine("Description -> 	"+description);
 					
 					//Do whatever you want to do.
 
@@ -138,7 +139,7 @@ namespace AppDomainTest.Controllers
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine(e);
+				Debug.WriteLine(e);
 				throw;
 			}
 		}
@@ -146,11 +147,11 @@ namespace AppDomainTest.Controllers
 		private void PrintCurrentAppDomainLoadedAssemblies(string title = null)
 		{
 			//List the assemblies in the current application domain.
-			Console.WriteLine("-------------------------------------------------------------------------------------- "+title);
-			Console.WriteLine("List of assemblies loaded in current appdomain:");
+			Debug.WriteLine("-------------------------------------------------------------------------------------- "+title);
+			Debug.WriteLine("List of assemblies loaded in current appdomain:");
 			foreach (Assembly assem in AppDomain.CurrentDomain.GetAssemblies())
-			Console.WriteLine(assem.ToString());
-			Console.WriteLine("--------------------------------------------------------------------------------------");
+				Debug.WriteLine(assem.ToString());
+			Debug.WriteLine("--------------------------------------------------------------------------------------");
 		}
 
 		public class SimpleAssemblyProxy : MarshalByRefObject
@@ -230,11 +231,11 @@ namespace AppDomainTest.Controllers
 			public void PrintAllAssemblyLoaded()
 			{
 				//List the assemblies in the current application domain.
-				Console.WriteLine("-------------------------------------------------------------------------------------- SECONDARY AppDomain");
-				Console.WriteLine("List of assemblies loaded in current appdomain:");
+				Debug.WriteLine("-------------------------------------------------------------------------------------- SECONDARY AppDomain");
+				Debug.WriteLine("List of assemblies loaded in current appdomain:");
 				foreach (Assembly assem in AppDomain.CurrentDomain.GetAssemblies())
-					Console.WriteLine(assem.ToString());
-				Console.WriteLine("--------------------------------------------------------------------------------------");
+					Debug.WriteLine(assem.ToString());
+				Debug.WriteLine("--------------------------------------------------------------------------------------");
 			}
 
 			public void AttachAssemblyResolveHandler()
@@ -273,11 +274,11 @@ namespace AppDomainTest.Controllers
 		private void PrintAllAssemblyLoaded(AppDomain appDomain)
 		{
 			//List the assemblies in the current application domain.
-			Console.WriteLine("--------------------------------------------------------------------------------------");
-			Console.WriteLine("List of assemblies loaded in current appdomain:");
+			Debug.WriteLine("--------------------------------------------------------------------------------------");
+			Debug.WriteLine("List of assemblies loaded in current appdomain:");
 			foreach (Assembly assem in appDomain.GetAssemblies())
-				Console.WriteLine(assem.ToString());
-			Console.WriteLine("--------------------------------------------------------------------------------------");
+				Debug.WriteLine(assem.ToString());
+			Debug.WriteLine("--------------------------------------------------------------------------------------");
 		}
 
 		private static string GetTemplate()
@@ -287,6 +288,7 @@ using System.Collections.Generic;
 using AppDomainTest.Interface;
 using Newtonsoft.Json;
 using TestLib;
+using System.Diagnostics;
 
 namespace AppDomainTest.Classes
 {
@@ -304,7 +306,7 @@ namespace AppDomainTest.Classes
 		public Parameter par_2 { get; set; }
 
 		~DynamicClass(){
-			Console.WriteLine(Char.ToString('D'));
+			Debug.WriteLine(Char.ToString('D'));
 		}
 
 		public void Configure(Parameter p1, Parameter p2)
@@ -331,7 +333,7 @@ namespace AppDomainTest.Classes
 		var mock = new MockEntities();
 		mock.Print();
 
-        Console.WriteLine(json);
+        Debug.WriteLine(json);
 		var res = Calculator.Sum(1, 2);
 			
         return new Result
