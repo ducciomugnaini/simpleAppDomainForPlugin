@@ -1,23 +1,53 @@
-# Compiled class file
-*.class
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
-# Log file
-*.log
+# C# Generic Web Project #
+##########################
+Output-Build.txt
+*/obj/
+*/bin/
+*.v11.suo
+.vs/
+*.pubxml.user
+Backup/
+packages/
 
-# BlueJ files
-*.ctxt
+# ReSharper #
+#############
+*.DotSettings.user
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# Pcube Project #
+#################
+Pcube/Web.config
+Pcube/Glimpse.log
+Pcube/SqlServerTypes/
+Pcube/App_Data/Logs/
+Pcube/App_Data/Store/
+Pcube/App_Data/Layout/
+Pcube/App_Data/Reports/
+*.csproj.user
+*.psess
+*.vsp
+*.backup
+*.rdlc
+*.rdl
+.idea/
 
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+# .css Files #
+#################
+custom-kendo.css
+style.css
+mixin.css
+wiki.css
+pivot-fl.css
+core.css
+swiper.css
+functions.css
+UpgradeLog.htm
